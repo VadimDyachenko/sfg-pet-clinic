@@ -1,13 +1,12 @@
 package ua.vadym.sfgpetclinic.bootstrap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import ua.vadym.sfgpetclinic.model.Owner;
 import ua.vadym.sfgpetclinic.model.Vet;
 import ua.vadym.sfgpetclinic.services.OwnerService;
 import ua.vadym.sfgpetclinic.services.VetService;
-import ua.vadym.sfgpetclinic.services.map.OwnerServiceMap;
-import ua.vadym.sfgpetclinic.services.map.VetServiceMap;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -15,9 +14,10 @@ public class DataInitializer implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataInitializer() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    @Autowired
+    public DataInitializer(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

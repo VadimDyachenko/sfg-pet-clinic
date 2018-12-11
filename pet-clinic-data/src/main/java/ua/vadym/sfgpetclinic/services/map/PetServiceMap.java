@@ -1,11 +1,11 @@
 package ua.vadym.sfgpetclinic.services.map;
 
 import ua.vadym.sfgpetclinic.model.Pet;
-import ua.vadym.sfgpetclinic.services.CrudService;
+import ua.vadym.sfgpetclinic.services.PetService;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstarctMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstarctMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {

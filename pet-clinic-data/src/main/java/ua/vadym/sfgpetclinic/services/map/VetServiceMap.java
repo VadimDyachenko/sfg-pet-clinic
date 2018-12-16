@@ -31,6 +31,6 @@ public class VetServiceMap extends AbstarctMapService<Vet, Long> implements VetS
 
     @Override
     public void deleteById(Long id) {
-        super.findById(id);
+        super.deleteById(id);
     }
 }

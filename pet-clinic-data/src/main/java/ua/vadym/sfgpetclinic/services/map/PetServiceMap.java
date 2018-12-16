@@ -31,6 +31,6 @@ public class PetServiceMap extends AbstarctMapService<Pet, Long> implements PetS
 
     @Override
     public void deleteById(Long id) {
-        super.findById(id);
+        super.deleteById(id);
     }
 }

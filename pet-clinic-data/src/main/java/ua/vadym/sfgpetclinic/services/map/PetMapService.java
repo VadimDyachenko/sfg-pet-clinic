@@ -7,7 +7,7 @@ import ua.vadym.sfgpetclinic.services.PetService;
 import java.util.Set;
 
 @Service
-public class PetServiceMap extends AbstarctMapService<Pet, Long> implements PetService {
+public class PetMapService extends AbstarctMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {

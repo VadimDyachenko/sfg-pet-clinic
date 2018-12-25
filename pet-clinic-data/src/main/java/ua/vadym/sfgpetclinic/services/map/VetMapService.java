@@ -9,11 +9,11 @@ import ua.vadym.sfgpetclinic.services.VetService;
 import java.util.Set;
 
 @Service
-public class VetServiceMap extends AbstarctMapService<Vet, Long> implements VetService {
+public class VetMapService extends AbstarctMapService<Vet, Long> implements VetService {
 
     private final SpecialityService specialityService;
 
-    public VetServiceMap(SpecialityService specialityService) {
+    public VetMapService(SpecialityService specialityService) {
         this.specialityService = specialityService;
     }
 

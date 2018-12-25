@@ -10,12 +10,12 @@ import ua.vadym.sfgpetclinic.services.PetTypeService;
 import java.util.Set;
 
 @Service
-public class OwnerServiceMap extends AbstarctMapService<Owner, Long> implements OwnerService {
+public class OwnerMapService extends AbstarctMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
     private final PetService petService;
 
-    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+    public OwnerMapService(PetTypeService petTypeService, PetService petService) {
         this.petTypeService = petTypeService;
         this.petService = petService;
     }

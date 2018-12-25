@@ -1,10 +1,11 @@
-package ua.vadym.sfgpetclinic.services;
+package ua.vadym.sfgpetclinic.services.jpa;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import ua.vadym.sfgpetclinic.model.Owner;
 import ua.vadym.sfgpetclinic.repository.OwnerRepository;
+import ua.vadym.sfgpetclinic.services.OwnerService;
 
 import java.util.HashSet;
 import java.util.Set;

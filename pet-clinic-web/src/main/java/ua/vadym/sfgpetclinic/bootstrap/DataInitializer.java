@@ -3,11 +3,17 @@ package ua.vadym.sfgpetclinic.bootstrap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import ua.vadym.sfgpetclinic.model.*;
+import ua.vadym.sfgpetclinic.model.Owner;
+import ua.vadym.sfgpetclinic.model.Pet;
+import ua.vadym.sfgpetclinic.model.PetType;
+import ua.vadym.sfgpetclinic.model.Speciality;
+import ua.vadym.sfgpetclinic.model.Vet;
+import ua.vadym.sfgpetclinic.model.Visit;
 import ua.vadym.sfgpetclinic.services.OwnerService;
 import ua.vadym.sfgpetclinic.services.PetTypeService;
 import ua.vadym.sfgpetclinic.services.SpecialityService;
 import ua.vadym.sfgpetclinic.services.VetService;
+import ua.vadym.sfgpetclinic.services.VisitService;
 
 import java.time.LocalDate;
 
@@ -18,18 +24,21 @@ public class DataInitializer implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     @Autowired
     public DataInitializer(
             OwnerService ownerService,
             VetService vetService,
             PetTypeService petTypeService,
-            SpecialityService specialityService
+            SpecialityService specialityService,
+            VisitService visitService
     ) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -97,6 +106,15 @@ public class DataInitializer implements CommandLineRunner {
         ownerService.save(secondOwner);
 
         System.out.println("Loaded owners...");
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(kensPet);
+        catVisit.setDate(LocalDate.of(2018, 4, 25));
+        catVisit.setDescription("Spring cat singing");
+
+        visitService.save(catVisit);
+
+        System.out.println("Loaded visits...");
 
         Vet firstVet = new Vet();
         firstVet.setFirstName("Sam");

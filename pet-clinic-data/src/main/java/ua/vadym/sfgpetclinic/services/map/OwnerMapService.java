@@ -8,6 +8,7 @@ import ua.vadym.sfgpetclinic.services.OwnerService;
 import ua.vadym.sfgpetclinic.services.PetService;
 import ua.vadym.sfgpetclinic.services.PetTypeService;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -74,5 +75,10 @@ public class OwnerMapService extends AbstarctMapService<Owner, Long> implements 
                 .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public List<Owner> findByLastNameLike(String lastName) {
+        throw new UnsupportedOperationException("Not implemented in current implementation");
     }
 }

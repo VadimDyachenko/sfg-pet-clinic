@@ -29,7 +29,7 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public List<Owner> findByLastNameLike(String lastName) {
-        return ownerRepository.findByLastNameLike(lastName);
+        return ownerRepository.findByLastNameLike("%" + lastName + "%");
     }
 
     @Override

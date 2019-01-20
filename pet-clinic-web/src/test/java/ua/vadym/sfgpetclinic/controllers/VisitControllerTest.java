@@ -62,7 +62,10 @@ class VisitControllerTest {
     void processNewVisitForm() throws Exception {
         when(petService.findById(1L)).thenReturn(pet);
 
-        mockMvc.perform(post("/owners/1/pets/1/visits/new"))
+        mockMvc.perform(post("/owners/1/pets/1/visits/new")
+                .param("date", "2019-01-20")
+                .param("description", "visit description")
+        )
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/1"));
 

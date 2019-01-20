@@ -79,7 +79,8 @@ class PetControllerTest {
         when(ownerService.findById(1L)).thenReturn(owner);
         when(petTypeService.findAll()).thenReturn(petTypes);
 
-        mockMvc.perform(post("/owners/1/pets/new"))
+        mockMvc.perform(post("/owners/1/pets/new")
+        .param("birthDate", "2019-01-20"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/1"));
 

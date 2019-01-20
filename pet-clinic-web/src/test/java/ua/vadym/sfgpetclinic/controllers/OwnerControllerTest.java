@@ -65,7 +65,9 @@ class OwnerControllerTest {
         List<Owner> ownerList = new ArrayList<>(owners);
         when(service.findByLastNameLike(anyString())).thenReturn(ownerList);
 
-        mockMvc.perform(get("/owners"))
+        mockMvc.perform(get("/owners")
+                .param("lastName", "")
+        )
                 .andExpect(status().isOk())
                 .andExpect(view().name("owners/ownersList"))
                 .andExpect(model().attribute("selections", is(ownerList)));
@@ -114,7 +116,7 @@ class OwnerControllerTest {
                 .andExpect(view().name("redirect:/owners/1"))
                 .andExpect(model().attributeExists("owner"));
 
-        verify(service,times(1)).save(any(Owner.class));
+        verify(service, times(1)).save(any(Owner.class));
     }
 
 
@@ -137,6 +139,6 @@ class OwnerControllerTest {
                 .andExpect(view().name("redirect:/owners/1"))
                 .andExpect(model().attributeExists("owner"));
 
-        verify(service,times(1)).save(any(Owner.class));
+        verify(service, times(1)).save(any(Owner.class));
     }
 }

@@ -7,23 +7,24 @@
 <body>
 <!--/*@thymesVar id="vet" type="ua.vadym.sfgpetclinic.model.Vet"*/-->
 
-    <h2 th:text="'List of Vets'">List of Vets.</h2>
+<h2 th:text="'List of Vets'">List of Vets.</h2>
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>First name</th>
-            <th>Last name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="vet : ${vets}">
-            <td th:text="${vet.id}">id</td>
-            <td th:text="${vet.firstName}">First Name</td>
-            <td th:text="${vet.lastName}">Last Name</td>
-        </tr>
-        </tbody>
-    </table>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Specialties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vet : ${vets}">
+        <td th:text="${vet.firstName} + ' ' + ${vet.lastName}">Vet Name</td>
+        <td>
+            <span th:each="specialty : ${vet.specialities}" th:text="${specialty.description + ' '}"/>
+            <span th:if="${vet?.specialities?.size() == 0}">none</span>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
